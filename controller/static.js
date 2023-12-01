@@ -1,3 +1,3 @@
 export const homeRoute = (req, res) => {
-    res.send('Hello')
+    res.render('form.ejs')
 }
