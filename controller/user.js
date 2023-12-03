@@ -1,4 +1,3 @@
-import { userInfo } from 'os';
 import User from '../models/user.js';
 
 export const getUsers = async (req, res) => {

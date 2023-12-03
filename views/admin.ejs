@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Admin</title>
+	</head>
+	<body>
+		<h1>Admin Panel</h1>
+        <h2>
+
+            <a href="/">Home</a>
+        </h2>
+		<table>
+			<thead>
+				<th>S. No</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>User ID</th>
+				<th>Email</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</thead>
+			<tbody>
+				<% userData.forEach((user, index) => { %>
+				<tr>
+					<td><%= index + 1 %></td>
+					<td><%= user.name %></td>
+					<td><%= user.age %></td>
+					<td><%= user.userID %></td>
+					<td><%= user.email %></td>
+					<td>
+						<a href="/edit-user/<%= user._id %>">Edit</a>
+					</td>
+					<td>
+						<a href="/delete-user">Remove</a>
+					</td>
+				</tr>
+                <% }) %>
+			</tbody>
+		</table>
+	</body>
+</html>

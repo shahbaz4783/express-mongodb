@@ -1,6 +1,7 @@
 import express from 'express';
 import 'dotenv/config';
 import staticRoute from './routes/static.js';
+import adminRoute from './routes/admin.js';
 import user from './routes/user.js';
 import { mongoConnect } from './config/database.js';
 
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.urlencoded({extended: false}))
 app.use(express.static('public'));
 app.use(staticRoute);
+app.use('/admin', adminRoute);
 app.use(user);
 
 mongoConnect(() => {
