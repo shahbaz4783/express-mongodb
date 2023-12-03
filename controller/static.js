@@ -1,3 +1,5 @@
 export const homeRoute = (req, res) => {
-    res.render('form.ejs')
+    res.render('form.ejs', {
+			editing: false,
+		});
 }
