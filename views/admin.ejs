@@ -33,7 +33,10 @@
 						<a href="/admin/edit-user/<%= user._id %>?edit=true">Edit</a>
 					</td>
 					<td>
-						<a href="/delete-user">Remove</a>
+                        <form action="/admin/delete-user" method="post">
+                            <input type="hidden" name="usrID" value="<%= user._id %>">
+                            <button type="submit">Delete</button>
+                        </form>
 					</td>
 				</tr>
                 <% }) %>

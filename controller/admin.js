@@ -29,4 +29,30 @@ export const getEditForm = async (req, res) => {
 	}
 };
 
-export const editUser = (req, res) => {};
+export const editUser = (req, res) => {
+	const user = new User(
+		req.body.name,
+		req.body.age,
+		req.body.userID,
+		req.body.email,
+		req.body.bio,
+		req.body.usrID
+	);
+	user
+		.save()
+		.then((result) => {
+			res.redirect('/admin');
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+
+export const deleteUser = (req, res) => {
+	const usrID = req.body.usrID;
+	User.deleteByID(usrID)
+		.then((result) => {
+			res.redirect('/admin');
+		})
+		.catch((err) => console.log(err));
+};

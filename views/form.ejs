@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="/css/index.css" />
 	</head>
 	<body>
-		<form class="form" action="<%= editing ? '/edit-user' : '/add-user' %>" method="post">
+		<form class="form" action="<%= editing ? '/admin/edit-user' : '/add-user' %>" method="post">
 			<div class="flex">
 				<label>
 					<input
@@ -63,6 +63,10 @@
 				>
 				<span>bio</span>
 			</label>
+
+            <% if (editing) { %>
+                <input type="hidden" name="usrID" value="<%= userData._id %>" />
+           <%  }  %>
 
 			<button class="fancy" href="#" type="submit">
 				<span class="top-key"></span>
